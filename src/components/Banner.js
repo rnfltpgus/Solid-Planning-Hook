@@ -4,34 +4,38 @@ import styled from "styled-components";
 
 const Banner = () => {
   return (
-    <Container>
-      <div className="banner-character"></div>
-      <div className="banner-background"></div>
-    </Container>
+    <BannerContainer>
+      <div className="banner-char">
+        <img src="./svg/banner-char.svg" alt="banner-char" />
+      </div>
+      <div className="banner-pattern">
+        <img src="./svg/banner-pattern.svg" alt="banner-pattern" />
+      </div>
+    </BannerContainer>
   );
 };
 
 export default Banner;
 
-const Container = styled.header`
-  display: flex;
-  width: 100vw;
-  height: 20vh;
+const BannerContainer = styled.header`
+  position: sticky;
   top: 0;
   margin-bottom: 5vh;
-  justify-content: center;
-  position: sticky;
 
-  .banner-character {
-    width: 30vw;
-    height: 100%;
-    z-index: 7;
-    background-color: #fbb03b;
+  .banner-char {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .banner-background {
+  .banner-pattern {
     width: 100%;
-    background-color: #0e162f;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
