@@ -12,8 +12,14 @@ const UserInformation = ({ nickname, oname, buildingCount }) => {
           <div>{`지구家 아파트 ${buildingCount}개`}</div>
         </div>
         <div className="user-id">
-          <div>{nickname}</div>
-          <div>{oname}</div>
+          <div>
+            <img src="./svg/user-id-icon-1.svg" alt="profile-img" />
+            {nickname}
+          </div>
+          <div>
+            <img src="./svg/user-id-icon-2.svg" alt="profile-img" />
+            {oname}
+          </div>
         </div>
       </div>
     </UserContainer>
@@ -28,21 +34,19 @@ const UserContainer = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1vw;
-  box-sizing: border-box;
-  border: 1px solid black;
+  border: 0.1rem solid black;
   border-radius: 1rem;
+  gap: 1vw;
 
   .user-profile-img {
-    width: 20%;
+    width: 25%;
     height: 100%;
     text-align: center;
   }
 
   .user-profile-detail {
-    width: 80%;
+    width: 75%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -50,12 +54,12 @@ const UserContainer = styled.div`
 
     .user-info {
       display: flex;
-      gap: 5vw;
+      gap: 3.5vw;
     }
 
     .user-id {
       display: flex;
-      gap: 1vw;
+      gap: 2vw;
     }
   }
 `;

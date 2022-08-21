@@ -4,6 +4,9 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState } from "../recoil/atom";
 import UserInformation from "./UserInformation";
 
+import styled from "styled-components";
+import Filter from "./Filter";
+
 const UserList = () => {
   const catchUsers = useSetRecoilState(userState);
   const user = useRecoilValue(userState);
@@ -26,7 +29,8 @@ const UserList = () => {
   }, [catchUsers]);
 
   return (
-    <div>
+    <UserListComponents>
+      <Filter />
       <ul className="user-list">
         {user &&
           user.map((user) => {
@@ -44,8 +48,10 @@ const UserList = () => {
             );
           })}
       </ul>
-    </div>
+    </UserListComponents>
   );
 };
 
 export default UserList;
+
+const UserListComponents = styled.div``;
