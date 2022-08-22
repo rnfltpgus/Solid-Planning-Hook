@@ -13,10 +13,10 @@ const UserList = () => {
   const catchUsers = useSetRecoilState(userState);
   const searchKeyword = useRecoilValue(searchState);
   const searchingKeyword = useRecoilValue(searchingState);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(8);
   const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
   const [message, setMessage] = useState(null);
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     async function getUsersData() {
@@ -37,18 +37,19 @@ const UserList = () => {
 
   const handleUserAction = () => {
     if (user.includes(!searchKeyword)) {
-      console.log(searchKeyword);
       setMessage("요청한 검색결과가 없습니다.");
       return;
     }
 
     user = user.filter((user) => {
-      const { id, nickname, oname, building_count: buildingCount } = user;
+      const { nickname, oname, building_count } = user;
       const keyWord = searchKeyword.toLowerCase();
+      const building = String(building_count);
 
       return (
         nickname.toLowerCase().includes(keyWord) ||
-        oname.toLowerCase().includes(keyWord)
+        oname.toLowerCase().includes(keyWord) ||
+        building.includes(searchKeyword)
       );
     });
   };
@@ -62,29 +63,28 @@ const UserList = () => {
       <Filter limit={limit} setLimit={setLimit} />
       <ul className="user-list">
         {message && <span className="no-searching-message">{message}</span>}
-        {user.lice(offset, offset + limit).map((user) => {
-          const { id, nickname, oname, building_count: buildingCount } = user;
+        {user &&
+          user.slice(offset, offset + limit).map((user, index) => {
+            const { id, nickname, oname, building_count } = user;
 
-          return (
-            <li key={id}>
-              <UserInformation
-                id={id}
-                nickname={nickname}
-                oname={oname}
-                buildingCount={buildingCount}
-              />
-            </li>
-          );
-        })}
+            return (
+              <li key={index}>
+                <UserInformation
+                  id={id}
+                  nickname={nickname}
+                  oname={oname}
+                  buildingCount={building_count}
+                />
+              </li>
+            );
+          })}
       </ul>
-      <footer>
-        <Pagination
-          total={user.length}
-          limit={limit}
-          page={page}
-          setPage={setPage}
-        />
-      </footer>
+      <Pagination
+        users={user.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </UserListComponents>
   );
 };

@@ -11,23 +11,18 @@ const Filter = ({ limit, setLimit }) => {
     <FilterComponents>
       <div className="filter-components">
         <div className="residents-count">{`입주민들 ${user.length}명`}</div>
-        <button className="filter-btn">
-          <img src="./svg/filter-icon.svg" alt="filter-icon" />
-          <label>
-            <select
-              type="number"
-              value={limit}
-              onChange={({ target: { value } }) => setLimit(Number(value))}
-            >
-              <option value="전체">전체</option>
-              <option value="5개 이상">5개 이상</option>
-              <option value="4개">4개</option>
-              <option value="3개">3개</option>
-              <option value="2개">2개</option>
-              <option value="1개">1개</option>
-            </select>
-          </label>
-        </button>
+        <select
+          type="Number"
+          value={limit}
+          onChange={({ target: { value } }) => setLimit(Number(value))}
+        >
+          <option value="전체">전체</option>
+          <option value="5개 이상">5개 이상</option>
+          <option value="4개">4개</option>
+          <option value="3개">3개</option>
+          <option value="2개">2개</option>
+          <option value="1개">1개</option>
+        </select>
       </div>
     </FilterComponents>
   );
@@ -62,5 +57,13 @@ const FilterComponents = styled.section`
     background-color: #fff;
     border: none;
     cursor: pointer;
+  }
+  select {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(./svg/filter-icon.svg) no-repeat center center / 100% 100%;
+    appearance: none;
+    border: none;
   }
 `;
