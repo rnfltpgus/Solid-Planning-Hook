@@ -3,6 +3,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import { userState, searchState, searchingState } from "../recoil/atom";
 import Filter from "./Filter";
+import Pagination from "./Pagination";
 import UserInformation from "./UserInformation";
 
 import styled from "styled-components";
@@ -12,6 +13,9 @@ const UserList = () => {
   const searchKeyword = useRecoilValue(searchState);
   const searchingKeyword = useRecoilValue(searchingState);
   let user = useRecoilValue(userState);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
@@ -74,6 +78,14 @@ const UserList = () => {
             );
           })}
       </ul>
+      <footer>
+        <Pagination
+          total={user.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+      </footer>
     </UserListComponents>
   );
 };
