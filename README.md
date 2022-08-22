@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# 화섬 아파트 지구家 입주민들
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+안녕하세요. Frontend 개발자 정세현입니다.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## ⚙️ Local Installation
 
-### `npm start`
+```
+$ npm install
+$ npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Stack 선정과 이유
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+  - 개발을 배우면서 제일 익숙한 방식이 React입니다.
+  - 컴포넌트 기반으로 개발이 가능하기에 재사용과 유지보수가 뛰어납니다.
+    - 이번 과제에서는 컴포넌트 재사용을 느꼈던 부분은 UserInformation.jsx 파일의 경우인 것 같습니다.
+- Recoil
+  - React는 페이스북에서 만들었습니다. Recoil 또한 페이스북 팀에서 개발하였습니다.
+  - 또한 atom만 사용할줄 알아도 전역에서 상태관리를 쉽게할 수 있습니다.
+  - Redux보다 좀더 쉽게 사용할 수 있습니다.
+- styled-components
+  - React는 컴포넌트 기반의 개발이여서, 한 컴포넌트에 모두를 포함하는 패턴인 css-in-js를 사용하기로 결정 후 Styled Component를 선정
+  - Styled Component는 개발자가 사용하기 편리하고 처음 렌더링 시 가져오는 style 관련 정보량이 적기에 사용하게 되었습니다.
