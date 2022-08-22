@@ -9,10 +9,10 @@ import UserInformation from "./UserInformation";
 import styled from "styled-components";
 
 const UserList = () => {
+  let user = useRecoilValue(userState);
   const catchUsers = useSetRecoilState(userState);
   const searchKeyword = useRecoilValue(searchState);
   const searchingKeyword = useRecoilValue(searchingState);
-  let user = useRecoilValue(userState);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
@@ -59,24 +59,23 @@ const UserList = () => {
 
   return (
     <UserListComponents>
-      <Filter />
+      <Filter limit={limit} setLimit={setLimit} />
       <ul className="user-list">
         {message && <span className="no-searching-message">{message}</span>}
-        {user &&
-          user.map((user) => {
-            const { id, nickname, oname, building_count: buildingCount } = user;
+        {user.lice(offset, offset + limit).map((user) => {
+          const { id, nickname, oname, building_count: buildingCount } = user;
 
-            return (
-              <li key={id}>
-                <UserInformation
-                  id={id}
-                  nickname={nickname}
-                  oname={oname}
-                  buildingCount={buildingCount}
-                />
-              </li>
-            );
-          })}
+          return (
+            <li key={id}>
+              <UserInformation
+                id={id}
+                nickname={nickname}
+                oname={oname}
+                buildingCount={buildingCount}
+              />
+            </li>
+          );
+        })}
       </ul>
       <footer>
         <Pagination
