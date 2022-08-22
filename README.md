@@ -7,7 +7,7 @@
 ## ⚙️ Local Installation
 
 ```
-$ npm install
+$ npm install or npm i
 $ npm start
 ```
 

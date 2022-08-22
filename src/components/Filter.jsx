@@ -2,6 +2,7 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 
 import { userState } from "../recoil/atom";
+
 import styled from "styled-components";
 
 const Filter = ({ limit, setLimit }) => {
@@ -17,11 +18,11 @@ const Filter = ({ limit, setLimit }) => {
           onChange={({ target: { value } }) => setLimit(Number(value))}
         >
           <option value="전체">전체</option>
-          <option value="5개 이상">5개 이상</option>
-          <option value="4개">4개</option>
-          <option value="3개">3개</option>
-          <option value="2개">2개</option>
-          <option value="1개">1개</option>
+          <option value="5">5개 이상</option>
+          <option value="4">4개</option>
+          <option value="3">3개</option>
+          <option value="2">2개</option>
+          <option value="1">1개</option>
         </select>
       </div>
     </FilterComponents>
