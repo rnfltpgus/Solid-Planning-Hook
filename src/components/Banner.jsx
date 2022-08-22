@@ -18,9 +18,10 @@ const Banner = () => {
 export default Banner;
 
 const BannerContainer = styled.header`
-  position: sticky;
   top: 0;
+  position: sticky;
   margin-bottom: 5vh;
+  z-index: 99;
 
   .banner-char {
     position: absolute;
