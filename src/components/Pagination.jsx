@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const Pagination = ({ users, limit, page, setPage }) => {
-  const numPages = Math.ceil(users / limit);
+const Pagination = ({ user, limit, page, setPage }) => {
+  const numPages = Math.ceil(user / limit);
 
   return (
     <FooterComponents>

@@ -80,7 +80,7 @@ const UserList = () => {
           })}
       </ul>
       <Pagination
-        users={user.length}
+        user={user.length}
         limit={limit}
         page={page}
         setPage={setPage}

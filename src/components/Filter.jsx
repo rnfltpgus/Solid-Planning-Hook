@@ -59,10 +59,11 @@ const FilterComponents = styled.section`
     border: none;
     cursor: pointer;
   }
+
   select {
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: url(./svg/filter-icon.svg) no-repeat center center / 100% 100%;
     appearance: none;
     border: none;
