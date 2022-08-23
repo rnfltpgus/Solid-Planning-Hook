@@ -24,7 +24,7 @@ const ApartMentFilter = () => {
           {filterSwitch ? "화섬 아파트 NFT" : `입주민들 ${user.length}명`}
         </div>
         <button
-          className="filter-btn-toggle"
+          className="filter-toggle-btn"
           onClick={handleToggleButton}
         ></button>
       </div>
@@ -110,7 +110,7 @@ const FilterComponents = styled.section`
     font-weight: bold;
   }
 
-  .filter-btn-toggle {
+  .filter-toggle-btn {
     display: inline-block;
     width: 25px;
     height: 25px;
