@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import { userState, searchState, searchingState } from "../recoil/atom";
-import Filter from "./Filter";
+import ApartMentFilter from "./ApartMentFilter";
 import Pagination from "./Pagination";
 import UserInformation from "./UserInformation";
 
@@ -60,7 +60,7 @@ const UserList = () => {
 
   return (
     <UserListComponents>
-      <Filter limit={limit} setLimit={setLimit} />
+      <ApartMentFilter />
       <ul className="user-list">
         {message && <span className="no-searching-message">{message}</span>}
         {user &&
