@@ -15,4 +15,20 @@ const searchingState = atom({
   default: false,
 });
 
-export { userState, searchState, searchingState };
+const ownApartMentState = atom({
+  key: "ownApartMent",
+  default: "",
+});
+
+const filterState = atom({
+  key: "filter",
+  default: false,
+});
+
+export {
+  userState,
+  searchState,
+  searchingState,
+  ownApartMentState,
+  filterState,
+};

@@ -1,34 +1,48 @@
 import React, { useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { userState } from "../recoil/atom";
+import { userState, ownApartMentState, filterState } from "../recoil/atom";
 
 import styled from "styled-components";
 
 const ApartMentFilter = () => {
   const user = useRecoilValue(userState);
-  const [filterSwitch, setFilterSwitch] = useState(false);
+  const ownCount = useSetRecoilState(ownApartMentState);
+  const isFilter = useSetRecoilState(filterState);
+  const [filterAppear, setFilterAppear] = useState(false);
 
   const handleToggleButton = () => {
-    setFilterSwitch(!filterSwitch);
+    setFilterAppear(!filterAppear);
+    filterReset();
+  };
+
+  const filterReset = () => {
+    ownCount(0);
+    isFilter(false);
   };
 
   const handleReplaceFilter = (value) => {
-    console.log("value의 값이 찍힌다", value);
+    if (!value) {
+      filterReset();
+      return;
+    }
+
+    ownCount(value);
+    isFilter(true);
   };
 
   return (
     <FilterComponents>
       <div className="filter-components">
         <div className="filter-section-name">
-          {filterSwitch ? "화섬 아파트 NFT" : `입주민들 ${user.length}명`}
+          {filterAppear ? "화섬 아파트 NFT" : `입주민들 ${user.length}명`}
         </div>
         <button
           className="filter-toggle-btn"
           onClick={handleToggleButton}
         ></button>
       </div>
-      {filterSwitch && (
+      {filterAppear && (
         <ul className="filter-list">
           <span className="own-apartment">보유 아파트</span>
           <li>
