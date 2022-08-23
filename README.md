@@ -1,10 +1,24 @@
 # 🪐 화섬 아파트 지구家 입주민들
 
-안녕하세요. Frontend 개발자 정세현입니다.
+안녕하세요. <br>
+Frontend 개발자 정세현입니다.
 
 <br>
 
-## ⚙️ Local Installation
+## 📝 기능구현 리스트
+
+- ✅ Main 1 : 제공된 Figma UI가 구현되어야 한다.
+- 🔥 Main 2 : PC, Tablet, Mobile 등 반응형이 이루어져야 한다.(어느정도 반응형으로 대응됨)
+- ✅ Banner : 메너는 상단에 고정되어야 한다.
+- ✅ Search 1 : 검색기능이 되어야한다.
+- ❌ Search 2 : 검색이 많이된 관련 검색어가 4건 노출되어야 한다.
+- ✅ Filter 1 : Filter를 클릭하면 Filter List가 출력되고, 마우스 오버시 hover 효과가 나타나야 한다.
+- ❌ Filter 2 : Filter의 항목을 클릭시, 기능이 동작해야 한다.
+- ✅ Pagination : 주어진 목데이터를 기준으로 8건식 출력되며, Pagination이 가능해야 한다.
+
+<br>
+
+## ⚙️ 사용방법
 
 ```
 $ npm install or npm i
@@ -13,7 +27,7 @@ $ npm start
 
 <br>
 
-## 🛠 Stack 선정과 이유
+## 🛠 스텍 선정과 이유
 
 - React
   - 개발을 배우면서 제일 익숙한 방식이 React입니다.
