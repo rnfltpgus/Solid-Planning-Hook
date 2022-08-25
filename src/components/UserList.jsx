@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { userState, searchState, searchingState } from "../recoil/atom";
+import {
+  userState,
+  filterState,
+  searchState,
+  searchingState,
+  ownApartMentState,
+} from "../recoil/atom";
 import ApartMentFilter from "./ApartMentFilter";
 import Pagination from "./Pagination";
 import UserInformation from "./UserInformation";
@@ -11,8 +17,10 @@ import styled from "styled-components";
 const UserList = () => {
   let user = useRecoilValue(userState);
   const catchUsers = useSetRecoilState(userState);
+  const isFilter = useRecoilValue(filterState);
+  const ownCount = useRecoilValue(ownApartMentState);
   const searchKeyword = useRecoilValue(searchState);
-  const searchingKeyword = useRecoilValue(searchingState);
+  const isKeyword = useRecoilValue(searchingState);
   const [limit, setLimit] = useState(8);
   const [page, setPage] = useState(1);
   const [message, setMessage] = useState(null);
@@ -54,8 +62,22 @@ const UserList = () => {
     });
   };
 
-  if (searchingKeyword) {
+  if (isKeyword) {
     handleUserAction();
+  }
+
+  const handleFilteredList = () => {
+    user = user.filter((user) => {
+      if (ownCount === 5) {
+        return user.building_count >= ownCount;
+      }
+
+      return user.building_count === ownCount;
+    });
+  };
+
+  if (isFilter) {
+    handleFilteredList();
   }
 
   return (
